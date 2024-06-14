@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Remove</title>
+    <link rel="stylesheet" href="background_remover.css">
+</head>
+<body>
+    <div class="container">
+        <div class="img-box">
+            <img src="D:/Vishesh info/Web development/vehicle/1000023446-removebg.png" alt="car Image" width="100%">
+            <div class="img-wrap">
+                <img src="D:/Vishesh info/Web development/vehicle/gw_hura_s_02_m.jpg" alt="Original image" id="originalImg">
+            </div>
+            <span id="line">
+                <img src="D:/Vishesh info/Web development/vehicle/gradient-red-arrow-isolated_23-2150584102.avif" class="arrow" alt="arrow image">
+            </span>
+        </div>
+    </div>
+
+    <script>
+        var Imgbox = document.querySelector(".img-box");
+        var imgWrap = document.querySelector(".img-wrap");
+        var originalImg = document.getElementById("originalImg");
+        var line = document.getElementById("line");
+
+        originalImg.style.width = Imgbox.offsetWidth + "px";
+
+        var leftSpace = Imgbox.offsetLeft;
+
+        Imgbox.onmousemove = function(e) {
+            var boxWidth = (e.pageX - leftSpace) + "px";
+            imgWrap.style.width = boxWidth;
+            line.style.left = boxWidth;
+        }
+    </script>
+</body>
